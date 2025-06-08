@@ -20,15 +20,6 @@ return {
     end,
   },
   {
-    "mfussenegger/nvim-lint",
-    optional = true,
-    opts = {
-      linters_by_ft = {
-        cmake = { "cmakelint" },
-      },
-    },
-  },
-  {
     "mason.nvim",
     opts = { ensure_installed = { "cmakelang", "cmakelint" } },
   },

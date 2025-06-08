@@ -14,13 +14,4 @@ return {
       table.insert(opts.sources, nls.builtins.formatting.black)
     end,
   },
-  {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = {
-      formatters_by_ft = {
-        ["python"] = { "black" },
-      },
-    },
-  },
 }
