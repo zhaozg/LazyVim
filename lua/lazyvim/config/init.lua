@@ -358,7 +358,6 @@ function M.get_defaults()
     },
     explorer = {
       { name = "snacks", extra = "editor.snacks_explorer" },
-      { name = "neo-tree", extra = "editor.neo-tree" },
     },
   }
 
