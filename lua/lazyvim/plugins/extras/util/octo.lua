@@ -12,7 +12,7 @@ return {
       enable_builtin = true,
       default_to_projects_v2 = true,
       default_merge_method = "squash",
-      picker = "telescope",
+      picker = "snacks",
     },
     keys = {
       { "<leader>gi", "<cmd>Octo issue list<CR>", desc = "List Issues (Octo)" },
@@ -42,14 +42,12 @@ return {
     "pwntester/octo.nvim",
     opts = function(_, opts)
       vim.treesitter.language.register("markdown", "octo")
-      if LazyVim.has_extra("editor.telescope") then
-        opts.picker = "telescope"
-      elseif LazyVim.has_extra("editor.fzf") then
+      if LazyVim.has_extra("editor.fzf") then
         opts.picker = "fzf-lua"
       elseif LazyVim.has_extra("editor.snacks_picker") then
         opts.picker = "snacks"
       else
-        LazyVim.error("`octo.nvim` requires `telescope.nvim` or `fzf-lua` or `snacks.nvim`")
+        LazyVim.error("`octo.nvim` requires `fzf-lua` or `snacks.nvim`")
       end
 
       -- Keep some empty windows in sessions

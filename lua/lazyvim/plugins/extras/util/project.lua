@@ -1,9 +1,7 @@
 local pick = nil
 
 pick = function()
-  if LazyVim.pick.picker.name == "telescope" then
-    return vim.cmd("Telescope projects")
-  elseif LazyVim.pick.picker.name == "fzf" then
+  if LazyVim.pick.picker.name == "fzf" then
     local fzf_lua = require("fzf-lua")
     local project = require("project_nvim.project")
     local history = require("project_nvim.utils.history")
@@ -100,18 +98,7 @@ return {
           end
         end
       end
-      LazyVim.on_load("telescope.nvim", function()
-        require("telescope").load_extension("projects")
-      end)
     end,
-  },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    optional = true,
-    keys = {
-      { "<leader>fp", pick, desc = "Projects" },
-    },
   },
 
   {
