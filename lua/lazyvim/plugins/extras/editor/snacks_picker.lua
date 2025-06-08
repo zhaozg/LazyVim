@@ -168,16 +168,6 @@ return {
     end,
   },
   {
-    "goolord/alpha-nvim",
-    optional = true,
-    opts = function(_, dashboard)
-      local button = dashboard.button("p", " " .. " Projects", [[<cmd> lua Snacks.picker.projects() <cr>]])
-      button.opts.hl = "AlphaButtons"
-      button.opts.hl_shortcut = "AlphaShortcut"
-      table.insert(dashboard.section.buttons.val, 4, button)
-    end,
-  },
-  {
     "echasnovski/mini.starter",
     optional = true,
     opts = function(_, opts)
