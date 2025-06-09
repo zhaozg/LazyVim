@@ -111,7 +111,7 @@ return {
 
   -- Filetype icons
   {
-    "echasnovski/mini.icons",
+    "echasnovski/mini.nvim",
     opts = {
       file = {
         [".chezmoiignore"] = { glyph = "", hl = "MiniIconsGrey" },

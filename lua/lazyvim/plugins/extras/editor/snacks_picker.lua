@@ -168,20 +168,6 @@ return {
     end,
   },
   {
-    "echasnovski/mini.starter",
-    optional = true,
-    opts = function(_, opts)
-      local items = {
-        {
-          name = "Projects",
-          action = [[lua Snacks.picker.projects()]],
-          section = string.rep(" ", 22) .. "Telescope",
-        },
-      }
-      vim.list_extend(opts.items, items)
-    end,
-  },
-  {
     "folke/flash.nvim",
     optional = true,
     specs = {

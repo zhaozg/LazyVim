@@ -187,7 +187,7 @@ return {
 
   -- icons
   {
-    "echasnovski/mini.icons",
+    "echasnovski/mini.nvim",
     lazy = true,
     opts = {
       file = {

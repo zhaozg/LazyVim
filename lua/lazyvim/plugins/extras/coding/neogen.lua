@@ -1,6 +1,6 @@
 return {
   "danymat/neogen",
-  dependencies = LazyVim.has("mini.snippets") and { "mini.snippets" } or {},
+  dependencies = LazyVim.has("mini.nvim") and { "mini.nvim" } or {},
   cmd = "Neogen",
   keys = {
     {

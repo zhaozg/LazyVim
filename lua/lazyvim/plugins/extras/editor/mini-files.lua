@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.files",
+  "echasnovski/mini.nvim",
   opts = {
     windows = {
       preview = true,

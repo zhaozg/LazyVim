@@ -1,7 +1,6 @@
 return {
   {
-    "echasnovski/mini.move",
-    event = "VeryLazy",
+    "echasnovski/mini.nvim",
     opts = {},
   },
 }

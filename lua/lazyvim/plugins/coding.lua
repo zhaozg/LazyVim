@@ -1,7 +1,7 @@
 return {
   -- auto pairs
   {
-    "echasnovski/mini.pairs",
+    "echasnovski/mini.nvim",
     event = "VeryLazy",
     opts = {
       modes = { insert = true, command = true, terminal = false },
@@ -29,7 +29,7 @@ return {
 
   -- Better text-objects
   {
-    "echasnovski/mini.ai",
+    "echasnovski/mini.nvim",
     event = "VeryLazy",
     opts = function()
       local ai = require("mini.ai")

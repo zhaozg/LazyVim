@@ -11,7 +11,7 @@ if lazyvim_docs then
   --[[
   return {
     {
-      "echasnovski/mini.snippets",
+      "echasnovski/mini.nvim",
       opts = function(_, opts)
         -- By default, for opts.snippets, the extra for mini.snippets only adds gen_loader.from_lang()
         -- This provides a sensible quickstart, integrating with friendly-snippets
@@ -59,14 +59,15 @@ return {
   { "garymjr/nvim-snippets", optional = true, enabled = false },
   -- disable luasnip:
   { "L3MON4D3/LuaSnip", optional = true, enabled = false },
+  -- disable luasnip
+  { "hrsh7th/nvim-cmp", optional = true, enabled = false },
 
-  -- add mini.snippets
+  -- add mini.nvim
   desc = "Manage and expand snippets (alternative to Luasnip)",
   {
-    "echasnovski/mini.snippets",
-    event = "InsertEnter", -- don't depend on other plugins to load...
+    "echasnovski/mini.nvim",
     dependencies = "rafamadriz/friendly-snippets",
-    opts = function()
+    opts = function(_, opts)
       ---@diagnostic disable-next-line: duplicate-set-field
       LazyVim.cmp.actions.snippet_stop = function() end -- by design, <esc> should not stop the session!
       ---@diagnostic disable-next-line: duplicate-set-field
@@ -75,7 +76,7 @@ return {
       end
 
       local mini_snippets = require("mini.snippets")
-      return {
+      opts = vim.tbl_deep_extend('force', opts, {
         snippets = { mini_snippets.gen_loader.from_lang() },
 
         -- Following the behavior of vim.snippets,
@@ -92,40 +93,9 @@ return {
             select(snippets, insert)
           end,
         },
-      }
+      })
+      return opts
     end,
-  },
-
-  -- nvim-cmp integration
-  {
-    "hrsh7th/nvim-cmp",
-    optional = true,
-    dependencies = include_in_completion and { "abeldekat/cmp-mini-snippets" } or nil,
-    opts = function(_, opts)
-      local cmp = require("cmp")
-      local cmp_config = require("cmp.config")
-
-      opts.snippet = {
-        expand = function(args)
-          expand_from_lsp(args.body)
-          cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-          cmp_config.set_onetime({ sources = {} })
-        end,
-      }
-
-      if include_in_completion then
-        table.insert(opts.sources, { name = "mini_snippets" })
-      else
-        expand_select_override = function(snippets, insert)
-          -- stylua: ignore
-          if cmp.visible() then cmp.close() end
-          MiniSnippets.default_select(snippets, insert)
-        end
-      end
-    end,
-    -- stylua: ignore
-    -- counterpart to <tab> defined in cmp.mappings
-    keys = include_in_completion and { { "<s-tab>", function() jump("prev") end, mode = "i" } } or nil,
   },
 
   -- blink.cmp integration

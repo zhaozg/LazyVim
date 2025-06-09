@@ -4,13 +4,13 @@ local M = {}
 M.hl = {}
 
 M.plugin = {
-  "echasnovski/mini.hipatterns",
+  "echasnovski/mini.nvim",
   recommended = true,
   desc = "Highlight colors in your code. Also includes Tailwind CSS support.",
   event = "LazyFile",
-  opts = function()
+  opts = function(_, opts)
     local hi = require("mini.hipatterns")
-    return {
+    vim.tbl_deep_extend("force", opts, {
       -- custom LazyVim option to enable the tailwind integration
       tailwind = {
         enabled = true,
@@ -47,7 +47,8 @@ M.plugin = {
           extmark_opts = { priority = 2000 },
         },
       },
-    }
+    })
+    return opts
   end,
   config = function(_, opts)
     if type(opts.tailwind) == "table" and opts.tailwind.enabled then

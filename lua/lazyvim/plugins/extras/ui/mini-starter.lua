@@ -5,10 +5,10 @@ return {
 
   -- enable mini.starter
   {
-    "echasnovski/mini.starter",
+    "echasnovski/mini.nvim",
     version = false, -- wait till new 0.7.0 release to put it back on semver
     event = "VimEnter",
-    opts = function()
+    opts = function(_, opts)
       local logo = table.concat({
         "            ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z",
         "            ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    ",
@@ -43,6 +43,8 @@ return {
           starter.gen_hook.aligning("center", "center"),
         },
       }
+
+      vim.tbl_deep_extend("force", opts, config)
       return config
     end,
     config = function(_, config)

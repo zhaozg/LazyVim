@@ -263,7 +263,7 @@ return {
 
   -- Filetype icons
   {
-    "echasnovski/mini.icons",
+    "echasnovski/mini.nvim",
     opts = {
       file = {
         [".eslintrc.js"] = { glyph = "󰱺", hl = "MiniIconsYellow" },
