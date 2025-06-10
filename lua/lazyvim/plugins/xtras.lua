@@ -8,7 +8,6 @@ local prios = {
   -- default core extra priority is 20
   -- default priority is 50
   ["lazyvim.plugins.extras.editor.aerial"] = 100,
-  ["lazyvim.plugins.extras.editor.outline"] = 100,
   ["lazyvim.plugins.extras.ui.mini-starter"] = 19,
 }
 
