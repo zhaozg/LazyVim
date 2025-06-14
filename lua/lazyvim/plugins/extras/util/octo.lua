@@ -12,7 +12,7 @@ return {
       enable_builtin = true,
       default_to_projects_v2 = true,
       default_merge_method = "squash",
-      picker = "snacks",
+      picker = "fzf-lua",
     },
     keys = {
       { "<leader>gi", "<cmd>Octo issue list<CR>", desc = "List Issues (Octo)" },
