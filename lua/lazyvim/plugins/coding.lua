@@ -20,13 +20,6 @@ return {
     end,
   },
 
-  -- comments
-  {
-    "folke/ts-comments.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-
   -- Better text-objects
   {
     "echasnovski/mini.nvim",
