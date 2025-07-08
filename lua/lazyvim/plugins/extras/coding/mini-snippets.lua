@@ -55,13 +55,6 @@ end
 local expand_select_override = nil
 
 return {
-  -- disable builtin snippet support:
-  { "garymjr/nvim-snippets", optional = true, enabled = false },
-  -- disable luasnip:
-  { "L3MON4D3/LuaSnip", optional = true, enabled = false },
-  -- disable luasnip
-  { "hrsh7th/nvim-cmp", optional = true, enabled = false },
-
   -- add mini.nvim
   desc = "Manage and expand snippets (alternative to Luasnip)",
   {
