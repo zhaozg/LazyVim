@@ -2,10 +2,10 @@ return {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
-    event = "LazyFile",
+    event = { "BufReadPre", "BufNewFile", "BufWritePre" },
     dependencies = {
       "mason.nvim",
-      { "mason-org/mason-lspconfig.nvim", config = function() end },
+      "mason-org/mason-lspconfig.nvim",
     },
     opts = function()
       ---@class PluginLspOpts
@@ -210,10 +210,7 @@ return {
 
       -- get all the servers that are available through mason-lspconfig
       local have_mason, mlsp = pcall(require, "mason-lspconfig")
-      local all_mslp_servers = {}
-      if have_mason then
-        all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
-      end
+      local all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings").get_mason_map().lspconfig_to_package)
 
       local ensure_installed = {} ---@type string[]
       for server, server_opts in pairs(servers) do
@@ -292,8 +289,4 @@ return {
       end)
     end,
   },
-
-  -- pin to v1 for now
-  { "mason-org/mason.nvim", version = "^1.0.0" },
-  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
 }
