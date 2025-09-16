@@ -112,15 +112,6 @@ return {
     },
   },
 
-  {
-    "hrsh7th/nvim-cmp",
-    optional = true,
-    opts = function(_, opts)
-      opts.auto_brackets = opts.auto_brackets or {}
-      table.insert(opts.auto_brackets, "python")
-    end,
-  },
-
   -- Don't mess up DAP adapters provided by nvim-dap-python
   {
     "jay-babu/mason-nvim-dap.nvim",

@@ -4,7 +4,7 @@ local M = {}
 M.hl = {}
 
 M.plugin = {
-  "echasnovski/mini.nvim",
+  "nvim-mini/mini.nvim",
   recommended = true,
   desc = "Highlight colors in your code. Also includes Tailwind CSS support.",
   event = "LazyFile",

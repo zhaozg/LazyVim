@@ -4,14 +4,14 @@ if lazyvim_docs then
   vim.g.lazyvim_mini_snippets_in_completion = true
 
   -- NOTE: Please also read:
-  -- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-snippets.md#expand
+  -- https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-snippets.md#expand
   -- :h MiniSnippets-session
 
   -- Example override for your own config:
   --[[
   return {
     {
-      "echasnovski/mini.nvim",
+      "nvim-mini/mini.nvim",
       opts = function(_, opts)
         -- By default, for opts.snippets, the extra for mini.snippets only adds gen_loader.from_lang()
         -- This provides a sensible quickstart, integrating with friendly-snippets
@@ -58,7 +58,7 @@ return {
   -- add mini.nvim
   desc = "Manage and expand snippets (alternative to Luasnip)",
   {
-    "echasnovski/mini.nvim",
+    "mini-nvim/mini.nvim",
     dependencies = "rafamadriz/friendly-snippets",
     opts = function(_, opts)
       ---@diagnostic disable-next-line: duplicate-set-field

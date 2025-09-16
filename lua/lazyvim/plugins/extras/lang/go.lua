@@ -130,7 +130,7 @@ return {
 
   -- Filetype icons
   {
-    "echasnovski/mini.nvim",
+    "nvim-mini/mini.nvim",
     opts = {
       file = {
         [".go-version"] = { glyph = "", hl = "MiniIconsBlue" },
