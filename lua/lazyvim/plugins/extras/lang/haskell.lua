@@ -41,7 +41,6 @@ return {
     },
   },
 
-  -- Make sure lspconfig doesn't start hls,
   -- as it conflicts with haskell-tools
   {
     "neovim/nvim-lspconfig",
