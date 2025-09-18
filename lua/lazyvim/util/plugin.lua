@@ -13,6 +13,14 @@ M.lazy_file_events = { "BufReadPost", "BufNewFile", "BufWritePre" }
 ---@type table<string, string>
 M.deprecated_extras = {
   ["lazyvim.plugins.extras.ui.treesitter-rewrite"] = "Disabled `treesitter-rewrite` extra for now. Not ready yet.",
+  ["lazyvim.plugins.extras.ui.treesitter-main"] = "the `nvim-treesitter` main branch is now used by default",
+  ["lazyvim.plugins.extras.coding.mini-ai"] = "`mini.ai` is now a core LazyVim plugin (again)",
+  ["lazyvim.plugins.extras.lazyrc"] = "local spec files are now a lazy.nvim feature",
+  ["lazyvim.plugins.extras.editor.trouble-v3"] = "Trouble v3 has been merged in main",
+  ["lazyvim.plugins.extras.lang.python-semshi"] = [[The python-semshi extra has been removed,
+  because it's causing too many issues.
+  Either use `basedpyright`, or copy the [old extra](https://github.com/LazyVim/LazyVim/blob/c1f5fcf9c7ed2659c9d5ac41b3bb8a93e0a3c6a0/lua/lazyvim/plugins/extras/lang/python-semshi.lua#L1) to your own config.
+  ]],
 }
 
 M.deprecated_modules = {}

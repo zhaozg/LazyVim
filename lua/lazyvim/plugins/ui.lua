@@ -2,7 +2,8 @@ return {
   -- This is what powers LazyVim's fancy-looking
   -- tabs, which include filetype icons and close buttons.
 
-  -- statusline
+  -- Displays a fancy status line with git status,
+  -- LSP diagnostics, filetype information, and more.
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",

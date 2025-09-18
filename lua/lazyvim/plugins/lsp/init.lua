@@ -2,7 +2,7 @@ return {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile", "BufWritePre" },
+    event = "LazyFile",
     dependencies = {
       "mason.nvim",
       { "mason-org/mason-lspconfig.nvim", config = function() end },
@@ -20,7 +20,6 @@ return {
             source = "if_many",
             prefix = "●",
             -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-            -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
             -- prefix = "icons",
           },
           severity_sort = true,
@@ -33,18 +32,24 @@ return {
             },
           },
         },
-        -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
+        -- Enable this to enable the builtin LSP inlay hints on Neovim.
         -- Be aware that you also will need to properly configure your LSP server to
         -- provide the inlay hints.
         inlay_hints = {
           enabled = true,
           exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
         },
-        -- Enable this to enable the builtin LSP code lenses on Neovim >= 0.10.0
+        -- Enable this to enable the builtin LSP code lenses on Neovim.
         -- Be aware that you also will need to properly configure your LSP server to
         -- provide the code lenses.
         codelens = {
           enabled = false,
+        },
+        -- Enable this to enable the builtin LSP folding on Neovim.
+        -- Be aware that you also will need to properly configure your LSP server to
+        -- provide the folds.
+        folds = {
+          enabled = true,
         },
         -- add any global capabilities here
         capabilities = {
@@ -113,7 +118,7 @@ return {
       return ret
     end,
     ---@param opts PluginLspOpts
-    config = function(_, opts)
+    config = vim.schedule_wrap(function(_, opts)
       -- setup autoformat
       LazyVim.format.register(LazyVim.lsp.formatter())
 
@@ -135,6 +140,15 @@ return {
           then
             vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
           end
+        end)
+      end
+
+      -- folds
+      if opts.folds.enabled then
+        LazyVim.lsp.on_supports_method("textDocument/foldingRange", function(client, buffer)
+          local win = vim.api.nvim_get_current_win()
+          vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+          vim.wo[win][0].foldmethod = "expr"
         end)
       end
 
@@ -242,7 +256,7 @@ return {
         resolve("denols")
         resolve("vtsls")
       end
-    end,
+    end),
   },
 
   -- cmdline tools and lsp servers
