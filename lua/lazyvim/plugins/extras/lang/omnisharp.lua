@@ -21,21 +21,6 @@ return {
     end,
   },
   {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = {
-      formatters_by_ft = {
-        cs = { "csharpier" },
-      },
-      formatters = {
-        csharpier = {
-          command = "dotnet-csharpier",
-          args = { "--write-stdout" },
-        },
-      },
-    },
-  },
-  {
     "mason-org/mason.nvim",
     opts = { ensure_installed = { "csharpier", "netcoredbg" } },
   },
@@ -52,9 +37,7 @@ return {
           keys = {
             {
               "gd",
-              LazyVim.has("telescope.nvim") and function()
-                require("omnisharp_extended").telescope_lsp_definitions()
-              end or function()
+              function()
                 require("omnisharp_extended").lsp_definitions()
               end,
               desc = "Goto Definition",

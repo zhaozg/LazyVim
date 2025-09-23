@@ -1,7 +1,6 @@
 return {
   {
-    "nvim-mini/mini.comment",
-    event = "VeryLazy",
+    "nvim-mini/mini.nvim",
     opts = {
       options = {
         custom_commentstring = function()

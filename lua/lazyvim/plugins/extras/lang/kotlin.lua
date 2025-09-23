@@ -31,23 +31,6 @@ return {
       },
     },
   },
-  -- Add linting
-  {
-    "mfussenegger/nvim-lint",
-    optional = true,
-    dependencies = "mason-org/mason.nvim",
-    opts = {
-      linters_by_ft = { kotlin = { "ktlint" } },
-    },
-  },
-  -- Add formatting
-  {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = {
-      formatters_by_ft = { kotlin = { "ktlint" } },
-    },
-  },
   -- Add formatting and linting
   {
     "nvimtools/none-ls.nvim",

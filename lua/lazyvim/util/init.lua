@@ -272,7 +272,6 @@ function M.get_pkg_path(pkg, path, opts)
       end
     end)
   end
-  return ret
 end
 
 --- Override the default title for notifications.

@@ -136,18 +136,9 @@ function M.format(opts)
     "force",
     {},
     opts or {},
-    LazyVim.opts("nvim-lspconfig").format or {},
-    LazyVim.opts("conform.nvim").format or {}
+    LazyVim.opts("nvim-lspconfig").format or {}
   )
-  local ok, conform = pcall(require, "conform")
-  -- use conform for formatting with LSP when available,
-  -- since it has better format diffing
-  if ok then
-    opts.formatters = {}
-    conform.format(opts)
-  else
-    vim.lsp.buf.format(opts)
-  end
+  vim.lsp.buf.format(opts)
 end
 
 M.action = setmetatable({}, {

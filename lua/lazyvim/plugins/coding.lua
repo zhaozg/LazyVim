@@ -3,7 +3,7 @@ return {
   -- Automatically inserts a matching closing character
   -- when you type an opening character like `"`, `[`, or `(`.
   {
-    "nvim-mini/mini.pairs",
+    "nvim-mini/mini.nvim",
     event = "VeryLazy",
     opts = {
       modes = { insert = true, command = true, terminal = false },
@@ -35,7 +35,7 @@ return {
   -- arguments, function calls, text within quotes and brackets, and to
   -- repeat those selections to select an outer text object.
   {
-    "nvim-mini/mini.ai",
+    "mini-mini/mini.nvim",
     event = "VeryLazy",
     opts = function()
       local ai = require("mini.ai")

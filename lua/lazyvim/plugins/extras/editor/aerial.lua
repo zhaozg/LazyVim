@@ -55,48 +55,6 @@ return {
     },
   },
 
-  -- Telescope integration
-  {
-    "nvim-telescope/telescope.nvim",
-    optional = true,
-    opts = function()
-      LazyVim.on_load("telescope.nvim", function()
-        require("telescope").load_extension("aerial")
-      end)
-    end,
-    keys = {
-      {
-        "<leader>ss",
-        "<cmd>Telescope aerial<cr>",
-        desc = "Goto Symbol (Aerial)",
-      },
-    },
-  },
-
-  -- edgy integration
-  {
-    "folke/edgy.nvim",
-    optional = true,
-    opts = function(_, opts)
-      local edgy_idx = LazyVim.plugin.extra_idx("ui.edgy")
-      local aerial_idx = LazyVim.plugin.extra_idx("editor.aerial")
-
-      if edgy_idx and edgy_idx > aerial_idx then
-        LazyVim.warn("The `edgy.nvim` extra must be **imported** before the `aerial.nvim` extra to work properly.", {
-          title = "LazyVim",
-        })
-      end
-
-      opts.right = opts.right or {}
-      table.insert(opts.right, {
-        title = "Aerial",
-        ft = "aerial",
-        pinned = true,
-        open = "AerialOpen",
-      })
-    end,
-  },
-
   -- lualine integration
   {
     "nvim-lualine/lualine.nvim",

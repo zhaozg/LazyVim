@@ -88,30 +88,6 @@ return {
     end,
   },
   {
-    "nvimdev/dashboard-nvim",
-    optional = true,
-    opts = function(_, opts)
-      local projects = {
-        action = pick_chezmoi,
-        desc = "  Config",
-        icon = "",
-        key = "c",
-      }
-
-      projects.desc = projects.desc .. string.rep(" ", 43 - #projects.desc)
-      projects.key_format = "  %s"
-
-      -- remove lazyvim config property
-      for i = #opts.config.center, 1, -1 do
-        if opts.config.center[i].key == "c" then
-          table.remove(opts.config.center, i)
-        end
-      end
-
-      table.insert(opts.config.center, 5, projects)
-    end,
-  },
-  {
     "folke/snacks.nvim",
     optional = true,
     opts = function(_, opts)
@@ -135,7 +111,7 @@ return {
 
   -- Filetype icons
   {
-    "nvim-mini/mini.icons",
+    "nvim-mini/mini.nvim",
     opts = {
       file = {
         [".chezmoiignore"] = { glyph = "", hl = "MiniIconsGrey" },

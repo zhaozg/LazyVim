@@ -11,6 +11,6 @@ require("lazy.minit").setup({
     { "nvim-treesitter/nvim-treesitter" },
     { "mason-org/mason-lspconfig.nvim" },
     { "mason-org/mason.nvim" },
-    { "nvim-mini/mini.icons", opts = {} },
+    { "nvim-mini/mini.nvim", opts = {} },
   },
 })

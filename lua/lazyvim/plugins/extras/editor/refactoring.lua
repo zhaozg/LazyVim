@@ -1,8 +1,6 @@
 local pick = function()
   local refactoring = require("refactoring")
-  if LazyVim.pick.picker.name == "telescope" then
-    return require("telescope").extensions.refactoring.refactors()
-  elseif LazyVim.pick.picker.name == "fzf" then
+  if LazyVim.pick.picker.name == "fzf" then
     local fzf_lua = require("fzf-lua")
     local results = refactoring.get_refactors()
 
@@ -148,11 +146,6 @@ return {
     },
     config = function(_, opts)
       require("refactoring").setup(opts)
-      if LazyVim.has("telescope.nvim") then
-        LazyVim.on_load("telescope.nvim", function()
-          require("telescope").load_extension("refactoring")
-        end)
-      end
     end,
   },
 }

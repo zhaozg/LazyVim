@@ -8,10 +8,9 @@ LazyVim.config = M
 
 ---@class LazyVimOptions
 local defaults = {
-  -- colorscheme can be a string like `catppuccin` or a function that will load the colorscheme
   ---@type string|fun()
   colorscheme = function()
-    require("tokyonight").load()
+    require("gruvbox").load()
   end,
   -- load the default settings
   defaults = {
@@ -356,17 +355,13 @@ function M.get_defaults()
   ---@type table<string, LazyVimDefault[]>
   local checks = {
     picker = {
-      { name = "snacks", extra = "editor.snacks_picker" },
       { name = "fzf", extra = "editor.fzf" },
-      { name = "telescope", extra = "editor.telescope" },
     },
     cmp = {
       { name = "blink.cmp", extra = "coding.blink" },
-      { name = "nvim-cmp", extra = "coding.nvim-cmp" },
     },
     explorer = {
       { name = "snacks", extra = "editor.snacks_explorer" },
-      { name = "neo-tree", extra = "editor.neo-tree" },
     },
   }
 

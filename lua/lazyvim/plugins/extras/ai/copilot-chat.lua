@@ -71,38 +71,4 @@ return {
       chat.setup(opts)
     end,
   },
-
-  -- Edgy integration
-  {
-    "folke/edgy.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.right = opts.right or {}
-      table.insert(opts.right, {
-        ft = "copilot-chat",
-        title = "Copilot Chat",
-        size = { width = 50 },
-      })
-    end,
-  },
-
-  -- Blink integration
-  {
-    "saghen/blink.cmp",
-    optional = true,
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-      sources = {
-        providers = {
-          path = {
-            -- Path sources triggered by "/" interfere with CopilotChat commands
-            enabled = function()
-              return vim.bo.filetype ~= "copilot-chat"
-            end,
-          },
-        },
-      },
-    },
-  },
 }
