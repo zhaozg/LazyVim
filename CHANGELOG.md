@@ -1,5 +1,55 @@
 # Changelog
 
+## [15.7.1](https://github.com/LazyVim/LazyVim/compare/v15.7.0...v15.7.1) (2025-10-02)
+
+
+### Bug Fixes
+
+* **sidekick:** better keymaps ([188b288](https://github.com/LazyVim/LazyVim/commit/188b2886147acb4d9e2a5c8ae7b73770fd66a92c))
+
+## [15.7.0](https://github.com/LazyVim/LazyVim/compare/v15.6.0...v15.7.0) (2025-10-01)
+
+
+### Features
+
+* **sidekick:** updated keymaps for sidekick ([2942bd4](https://github.com/LazyVim/LazyVim/commit/2942bd4a0d738d693af51354e96aa7be5407d105))
+
+
+### Bug Fixes
+
+* **copilot-native:** schedule inline_completion.enable ([23b1da1](https://github.com/LazyVim/LazyVim/commit/23b1da170f6367fafe0be47b9c141770ed75a78e))
+* **sidekick:** better keymaps ([aabc03f](https://github.com/LazyVim/LazyVim/commit/aabc03f88d30b0424926d9d894adc5c91eb84ec2))
+* **stylua:** stylua is now also an LSP. Disable it since we use the CLI tool. ([2f76d57](https://github.com/LazyVim/LazyVim/commit/2f76d572a2b172e5e7e236d3e972443242c36b66))
+
+## [15.6.0](https://github.com/LazyVim/LazyVim/compare/v15.5.0...v15.6.0) (2025-09-30)
+
+
+### Features
+
+* **sidekick:** added keymaps to work with AI cli tools ([5d18a46](https://github.com/LazyVim/LazyVim/commit/5d18a46b6a7bb5b946a6c87b9a45a2738c9ec9c3))
+* **sidekick:** fancier lualine component ([b889978](https://github.com/LazyVim/LazyVim/commit/b8899781516da71ba0f63afa93fb4a6b25dff144))
+
+
+### Bug Fixes
+
+* **config:** clipboard:get() ([22851dc](https://github.com/LazyVim/LazyVim/commit/22851dce979c4cac379c6795ca7885c83c1c7eaf))
+* **copilot-native:** change  Copilot-native's `<M-[>` description to "Prev Suggestion" ([#6553](https://github.com/LazyVim/LazyVim/issues/6553)) ([089d0a5](https://github.com/LazyVim/LazyVim/commit/089d0a5ac1ab85238804e017ac1ef0dc0a8341f0))
+* **sidekick:** changed keymap to open new tool ([3d3739b](https://github.com/LazyVim/LazyVim/commit/3d3739b4b8943b5e7143d37f60bb0adbb6cf82f3))
+
+## [15.5.0](https://github.com/LazyVim/LazyVim/compare/v15.4.0...v15.5.0) (2025-09-27)
+
+
+### Features
+
+* **ai.copilot-native:** let sidekick.nvim handle some things if available ([b25ea9c](https://github.com/LazyVim/LazyVim/commit/b25ea9c153e76d11579731e1d5529f275a36f91d))
+* **ai:** added completion hooks for next edit suggestions ([30a325d](https://github.com/LazyVim/LazyVim/commit/30a325d67184a80006dc55352d9663cdf01082d5))
+* **extras:** added extra for `sidekick.nvim` (Copilot LSP integration) ([dbfe209](https://github.com/LazyVim/LazyVim/commit/dbfe20996ce62d6b0048245ab4e304610548da04))
+
+
+### Bug Fixes
+
+* **ai.copilot:** disable copilot lsp if installed. copilot.lua needs its own version of the LSP ([e9bc607](https://github.com/LazyVim/LazyVim/commit/e9bc6074d1ea69e921a6195d1dc34333eaa310f8))
+
 ## [15.4.0](https://github.com/LazyVim/LazyVim/compare/v15.3.0...v15.4.0) (2025-09-26)
 
 
