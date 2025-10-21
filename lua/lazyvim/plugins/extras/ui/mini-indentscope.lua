@@ -23,6 +23,7 @@ return {
           "mason",
           "neo-tree",
           "notify",
+          "sidekick_terminal",
           "snacks_dashboard",
           "snacks_notif",
           "snacks_terminal",
@@ -44,6 +45,15 @@ return {
     end,
   },
 
+  -- disable indent-blankline scope when mini-indentscope is enabled
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    optional = true,
+    event = "LazyFile",
+    opts = {
+      scope = { enabled = false },
+    },
+  },
 
   -- disable snacks scroll when mini-indentscope is enabled
   {

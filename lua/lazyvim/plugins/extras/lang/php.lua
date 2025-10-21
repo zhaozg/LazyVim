@@ -65,4 +65,39 @@ return {
       table.insert(opts.sources, nls.builtins.diagnostics.phpcs)
     end,
   },
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        php = { "phpcs" },
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        php = { "php_cs_fixer" },
+      },
+    },
+  },
+
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = {
+      "V13Axel/neotest-pest",
+      "olimorris/neotest-phpunit",
+    },
+    opts = {
+      adapters = {
+        "neotest-pest",
+        ["neotest-phpunit"] = {
+          root_ignore_files = { "tests/Pest.php" },
+        },
+      },
+    },
+  },
 }

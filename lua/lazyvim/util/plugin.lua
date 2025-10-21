@@ -13,6 +13,9 @@ M.lazy_file_events = { "BufReadPost", "BufNewFile", "BufWritePre" }
 ---@type table<string, string>
 M.deprecated_extras = {
 }
+M.renamed_extras = {
+  ["lazyvim.plugins.extras.lang.omnisharp"] = "lazyvim.plugins.extras.lang.dotnet",
+}
 
 M.deprecated_modules = {}
 
@@ -79,6 +82,18 @@ function M.fix_imports()
       if def and def.enabled == false then
         return false
       end
+    end
+    local rename = M.renamed_extras[spec.import]
+    if rename then
+      LazyVim.warn(
+        ("The extra `%s` was renamed to `%s`.\nPlease update your config for `%s`"):format(
+          spec.import,
+          rename,
+          spec.importing or "LazyVim"
+        ),
+        { title = "LazyVim" }
+      )
+      spec.import = rename
     end
     local dep = M.deprecated_extras[spec and spec.import]
     if dep then
