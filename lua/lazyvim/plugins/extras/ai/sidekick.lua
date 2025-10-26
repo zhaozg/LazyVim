@@ -58,6 +58,7 @@ return {
   {
     "folke/sidekick.nvim",
     opts = function()
+      local Snacks = require("snacks")
       -- Accept inline suggestions or next edits
       LazyVim.cmp.actions.ai_nes = function()
         local Nes = require("sidekick.nes")
