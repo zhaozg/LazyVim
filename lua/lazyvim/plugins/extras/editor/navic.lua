@@ -7,6 +7,7 @@ return {
     lazy = true,
     init = function()
       vim.g.navic_silence = true
+      local Snacks = require("snacks")
       Snacks.util.lsp.on({ method = "textDocument/documentSymbol" }, function(buffer, client)
         require("nvim-navic").attach(client, buffer)
       end)
